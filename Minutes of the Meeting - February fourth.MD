@@ -1,0 +1,5 @@
+- Initial introduction of everyone.
+- Distributed four papers to present at the next meeting.
+- Discussed about possible developments.
+    - Website
+    - Room
