@@ -10,7 +10,7 @@ The method speeds up the training phase by stabilizing the distribution of each 
 
 The technique normalizes the input along each feature to have `zero mean` and `unit variance`. In addition, the model learns two additional parameters, `scale` and `shift` for each of the normalized feature. The algorithm is presented below (i.e, application of batch-norm on an activation x over a mini-batch).
 
-![transform](https://pasteboard.co/HaO0zsL.png)
+![transform](https://user-images.githubusercontent.com/15105941/37105982-945fa8ba-2256-11e8-867b-66588ad40eb0.png)
 
 Internal Covariate shift refers to the change in the distributions of internal nodes of a deep network in the course of training.
 
@@ -19,7 +19,7 @@ Introduction of the parameters `beta` and `gamma` for every normalized features 
 
 The model computes the `mean` and `variance` along each feature of a layer and accumulates this over-time during training and saves it as `moving_mean` and `moving_variance` (decaying running average). These accumulated batch statistics are used at inference time. The algorithm to train a batch-normalized network is presented below.
 
-~[](https://pasteboard.co/HaO0SgU.png)
+~[training](https://user-images.githubusercontent.com/15105941/37105828-2a39ba66-2256-11e8-8bd8-9ae4d5f30432.png)
 
 For fully connected layers of shape `[B, N]`, where `B` is the batch-size and `N` is the number of features, batch-norm is applied along each feature over the entire mini-batch.
 
