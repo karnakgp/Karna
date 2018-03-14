@@ -10,15 +10,16 @@ Usage of "Attention layer" in NMT gives better results compared to the results o
 
 BACKGROUND:
 The proposed model was built on encoder-decoder model given by(cho.et.al) and thus primarily contains two things an encoder which takes the input and decoder which gives the output.The probability of output can be represented in mathematical form as
-                                    p(y)=$\prod_{t=1}^{n}(P(yt/{y1,..yt-1,c}))$ {y={y1,y2,y3...yn} the output,x={x1,x2,...xn}is the input}
+                                    p(y)=http://latex.codecogs.com/svg.latex?%5Cprod_%7Bt%3D1%7D%5E%7Bn%7D%28P%28yt%2F%7By1%2C..yt-1%2Cc%7D%29%29 {y={y1,y2,y3...yn} the output,x={x1,x2,...xn}is the input}
 where
-    P(y_{t}/{y_{1},..y_{t-1},c})=g(s_{t},y_{t-1},c) where y_{t}-output at time t
+   
+   P(y_{t}/{y_{1},..y_{t-1},c})=g(s_{t},y_{t-1},c) where y_{t}-output at time t
                                               y_{t-1}-output at time t-1
                                               s_{t}-hidden state at time t
                                               g-nonlinearity
                                               c-context vector
 
-The encoder encodes the obtained sentence and encodes it into a context vector and passes it into decoder and the decoder produces the output until a special character is obtained.
+The encoder encodes the obtained sentence and encodes it into a context vector(here it is the hidden state of the last cell of encoder) and passes it into decoder and the decoder produces the output until a special character is obtained.
 
 Sequence to Sequence models perform well over shorter sentences but fail at translations when it comes to encoding sentences which are too long especially when the length of testing data is more when compared to the sequences in training data But the attention model proposed eliminates this single vector encoding but rather finds an encoding for every time step of decoder using attention and eliminates the above problem  
 ![alt text](https://raw.githubusercontent.com/coffeelover12111997/randomfiles/master/seq2seq.png)
