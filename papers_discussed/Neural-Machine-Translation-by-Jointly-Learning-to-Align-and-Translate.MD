@@ -12,9 +12,9 @@ BACKGROUND:
 The proposed model was built on encoder-decoder model given by(cho.et.al) and thus primarily contains two things an encoder which takes the input and decoder which gives the output.The probability of output can be represented in mathematical form as
                                     p(y)=\prod_{t=1}^{n}(P(yt/{y1,..yt-1,c})) {y={y1,y2,y3...yn} the output,x={x1,x2,...xn}is the input}
 where
-    P(y_t/{y_1,..y_(t-1),c})=g(s_t,y_(t-1),c) where y_t-output at time t
-                                              y_(t-1)-output at time t-1
-                                              s_t-hidden state at time t
+    P(y_{t}/{y_{1},..y_{t-1},c})=g(s_{t},y_{t-1},c) where y_{t}-output at time t
+                                              y_{t-1}-output at time t-1
+                                              s_{t}-hidden state at time t
                                               g-nonlinearity
                                               c-context vector
 
@@ -30,25 +30,25 @@ THE MODEL:
 ![alt text](https://raw.githubusercontent.com/coffeelover12111997/randomfiles/master/attentionNMT.png)    
 
 In the proposed architecture we have 
-                            P(Yi/{Y1....Yi-1,X})=g(s_i,Y_(i-1),c_i) #probability of output at ith decoder
-where si is given by 
-                            si=f(s_(i-1),Y_(i-1),c_i) where s_i-hidden state at time i
-                                                      Y_(i-1)-output at i-1 th decoder
-                                                      c_i-context vector corresponding to ith output
+                            P(Y_{i}/{Y_{1}....Y_{i-1},X})=g(s_{i},Y_{i-1},c_{i}) #probability of output at ith decoder
+where s_{i} is given by 
+                            si=f(s_{i-1},Y_{i-1},c_{i}) where s_{i}-hidden state at time i
+                                                      Y_{i-1}-output at i-1 th decoder
+                                                      c_{i}-context vector corresponding to ith output
 
-and ci is computed as   ci=\sum_{j=1}^{n} \alphaij*hj (where j corresponds to jth cell of encoder,n-length of i/p sequence)
+and c_{i} is computed as  c_{i}=\sum_{j=1}^{n} \alpha_{ij}*h_{j}(where j corresponds to jth cell of encoder,n-length of i/p sequence)
 
 The above method is a soft attention model i.e the output ci is a weighted sum of all the encoder hidden states and backpropogation can be applied effectively to such a model (but if the attention model is hard then only the inputs with higher probability are only selected and thus back propogation would become difficult. In such cases RL is used for training
 example paper-Recurrent Models of Visual Attention)
 
-so in the above context vector equation \alphaij is given by             (where j-jth element of input sequence,i-ith output)
-                                \alphaij= exp(e_ij)/( \sum_{k=1}^{n} exp(e_ik))
+so in the above context vector equation \alpha_{ij} is given by             (where j-jth element of input sequence,i-ith output)
+                                \alpha_{ij}= exp(e_{ij})/( \sum_{k=1}^{n} exp(e_{ik}))
 
-where e_ij=a(s_(i-1),h_j) and a here is an alignment(here it means to select the input sequence in such a way to obtain the  required output)model that scores how well an input is related to the output
+where e_{ij}=a(s_{i-1},h_{j}) and a here is an alignment(here it means to select the input sequence in such a way to obtain the  required output)model that scores how well an input is related to the output
 
 Here in the paper a is represented by a feed forward network and is trained along with encoder-decoder network.
 
-Thus the \alpha_ij determines how well the network pays attention to an input at j and thus this removes the need for encoding the entire sequence to a single vector
+Thus the \alpha_{ij} determines how well the network pays attention to an input at j and thus this removes the need for encoding the entire sequence to a single vector
 
 Also In this model a Bi-directional RNN is used for the encoder part compared to the single directional used for seq-seq paper
 and in this rnn h_j=[h_forward;h_backward](backward and forward hidden states are concatenated and this gives a better result compared to a normal RNN
