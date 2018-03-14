@@ -10,7 +10,7 @@ Usage of "Attention layer" in NMT gives better results compared to the results o
 
 BACKGROUND:
 The proposed model was built on encoder-decoder model given by(cho.et.al) and thus primarily contains two things an encoder which takes the input and decoder which gives the output.The probability of output can be represented in mathematical form as
-                                    p(y)=\prod_{t=1}^{n}(P(yt/{y1,..yt-1,c})) {y={y1,y2,y3...yn} the output,x={x1,x2,...xn}is the input}
+                                    p(y)=$\prod_{t=1}^{n}(P(yt/{y1,..yt-1,c}))$ {y={y1,y2,y3...yn} the output,x={x1,x2,...xn}is the input}
 where
     P(y_{t}/{y_{1},..y_{t-1},c})=g(s_{t},y_{t-1},c) where y_{t}-output at time t
                                               y_{t-1}-output at time t-1
