@@ -5,10 +5,10 @@
 
 ## Architecture
 architecture consists of
-*Input Module
-*Question Module
-*Episodic Memory Module
-*Answer Module
+- Input Module
+- Question Module
+- Episodic Memory Module
+- Answer Module
 
 ### Input Module
 The input module vectorizes the input. The Input may be a sentence, review, article or a story.
@@ -39,5 +39,5 @@ Facebook’s bAbI dataset
 
 # Any further details
 ## NLP Application
-The DMN has high QnA capabilities.
+The DMN has high QnA capabilities. [link](https://yerevann.github.io/2016/02/05/implementing-dynamic-memory-networks/)
 
