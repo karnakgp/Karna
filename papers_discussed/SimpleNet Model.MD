@@ -42,4 +42,4 @@ This model tried to show the importance of simplicity and optimization using our
 [Link](https://arxiv.org/pdf/1608.06037.pdf) to the paper.
 ### My two cents
 
-> I found that model does not need to be always deep and complex to perform better, if we apply some hacks or techniques to tweak/create model specified to our objective then we can obtain better results than the pretrained one.
+> I found that model does not need to be always deep and complex to perform better, if we apply some hacks or techniques to tweak/create model specified to our objective then we can obtain better results than the deep/complex one.
