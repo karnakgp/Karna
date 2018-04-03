@@ -12,4 +12,4 @@
 - Rahul Mishra
 - Rajasekhar Mekala
 - Rameshwar Bhaskaran
-- One more guy (EC, 3rd year, Forgot his name)
+- Preetish
